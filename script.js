@@ -3,7 +3,7 @@
 // DEPENDENCIES =========================================================
 var currentDay = document.querySelector("#currentDay");
 
-//As soon as I open my page get document on ready - this is the beginning! Woo Hoo
+//I open my page get document on ready - this is the beginning! Woo Hoo
 $(document).ready(function () {
   console.log("ready!");
 });
@@ -17,9 +17,9 @@ var yyyy = today.getFullYear();
 today = mm + "/" + dd + "/" + yyyy;
 currentDay.append(today);
 // document.write(today);
-// yeah BOY... CURRENT TIME - DONE
+// yeah BOY... Current time - BOOM finished
 
-// gets the current of the user when are on the website
+// Function here gets the current date of when user is on the website
 function myHour() {
   var d = new Date();
   var n = d.getHours();
@@ -28,7 +28,7 @@ function myHour() {
 
 console.log(myHour());
 
-//in each sub div display time on the left, input area in the middle, submit button the the right
+//In div time will be used to in each sub div display time on the left, input area in the middle, submit button the the right
 //depending on the time of the day, it will diplay differently
 //array of time objects
 
@@ -86,6 +86,7 @@ $(".time-block").each(function (element) {
   }
 });
 
+var userInputByHour = [];
 // function colorBlock() {
 //   for (var i = 0; i < time.length; i++) {
 //     if (myHour() === time[i]) {
@@ -119,57 +120,61 @@ var textArea = document.querySelector("#textArea");
 //   });
 // }
 // // ==================== or ========================
+// JQuery Save Button!
 
 $(".saveBtn").on("click", function () {
-  //get nearby values.
+  //button input and then time - values of neighbors
   console.log(this);
-  var text = $(this).siblings(".description").val();
+  var myTodo = $(this).siblings(".description").val();
+  // Stores the time
   var time = $(this).parent().attr("id");
   //set items in local storage.
-  localStorage.setItem("TaskArray", [time, text]);
+  localStorage.setItem("TaskArray", [time, myTodo]);
 });
 
-// Saving to local storage so taht we can keep input!!
-// $("#hour-9 .description").val(localStorage.getIem("hour-9"));
-// $("#hour-10 .description").val(localStorage.getIem("hour-10"));
-// $("#hour-11 .description").val(localStorage.getIem("hour-11"));
-// $("#hour-12 .description").val(localStorage.getIem("hour-12"));
-// $("#hour-13 .description").val(localStorage.getIem("hour-13"));
-// $("#hour-14 .description").val(localStorage.getIem("hour-14"));
-// $("#hour-15 .description").val(localStorage.getIem("hour-15"));
-// $("#hour-16 .description").val(localStorage.getIem("hour-16"));
-// $("#hour-17 .description").val(localStorage.getIem("hour-17"));
+// Saving to local storage so that we can keep input!!
+$("#hour-9 .description").val(localStorage.getIem("hour-9"));
+$("#hour-10 .description").val(localStorage.getIem("hour-10"));
+$("#hour-11 .description").val(localStorage.getIem("hour-11"));
+$("#hour-12 .description").val(localStorage.getIem("hour-12"));
+$("#hour-13 .description").val(localStorage.getIem("hour-13"));
+$("#hour-14 .description").val(localStorage.getIem("hour-14"));
+$("#hour-15 .description").val(localStorage.getIem("hour-15"));
+$("#hour-16 .description").val(localStorage.getIem("hour-16"));
+$("#hour-17 .description").val(localStorage.getIem("hour-17"));
 
-// Condensed version of the above....?
-$(".saveBtn").on("click", function () {
-  //get nearby values (Content in textarea box)
-  console.log(this);
-  var text = $(this).siblings(".description").val();
-  var time = $(this).parent().attr("id");
-  //set (save) items in local storage.
-  localStorage.setItem(time, text);
-});
+console.log(myHour());
 
-var userInputByHour = [
-  {
-    divHour: "",
-    task: "",
-  },
-];
-// push task and the hour into an array and then set storage
-function storeTasks(divHour) {
-  if (description == "") {
-    return;
-  }
-  // Add new todo text to tods arrat and clear the input
-  userInputByHour.push(divHour, description);
-  todoInput.value = "";
-  // push array
-  renderTasks();
-  // get storage
-}
+// // Condensed version of the above....?
+// $(".saveBtn").on("click", function () {
+//   //get nearby values (Content in textarea box)
+//   console.log(this);
+//   var text = $(this).siblings(".description").val();
+//   var time = $(this).parent().attr("id");
+//   //set (save) items in local storage.
+//   localStorage.setItem(time, text);
+// });
 
-function storeTodos() {}
+// var userInputByHour = [
+//   {
+//     divHour: "",
+//     task: "",
+//   },
+// ];
+// // push task and the hour into an array and then set storage
+// function storeTasks(divHour) {
+//   if (description == "") {
+//     return;
+//   }
+//   // Add new todo text to tods arrat and clear the input
+//   userInputByHour.push(divHour, description);
+//   todoInput.value = "";
+//   // push array
+//   renderTasks();
+//   // get storage
+// }
+
+// function storeTodos() {}
 
 // Add new Todo Text to todos array clear the
 //   event.target.parentNode
