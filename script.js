@@ -128,16 +128,27 @@ $(".saveBtn").on("click", function () {
   //set items in local storage.
   localStorage.setItem("TaskArray", [time, text]);
 });
-// Mikes code
-$("#hour-9 .description").val(localStorage.getIem("hour-9"));
-$("#hour-10 .description").val(localStorage.getIem("hour-10"));
-$("#hour-11 .description").val(localStorage.getIem("hour-11"));
-$("#hour-12 .description").val(localStorage.getIem("hour-12"));
-$("#hour-13 .description").val(localStorage.getIem("hour-13"));
-$("#hour-14 .description").val(localStorage.getIem("hour-14"));
-$("#hour-15 .description").val(localStorage.getIem("hour-15"));
-$("#hour-16 .description").val(localStorage.getIem("hour-16"));
-$("#hour-17 .description").val(localStorage.getIem("hour-17"));
+
+// Saving to local storage so taht we can keep input!!
+// $("#hour-9 .description").val(localStorage.getIem("hour-9"));
+// $("#hour-10 .description").val(localStorage.getIem("hour-10"));
+// $("#hour-11 .description").val(localStorage.getIem("hour-11"));
+// $("#hour-12 .description").val(localStorage.getIem("hour-12"));
+// $("#hour-13 .description").val(localStorage.getIem("hour-13"));
+// $("#hour-14 .description").val(localStorage.getIem("hour-14"));
+// $("#hour-15 .description").val(localStorage.getIem("hour-15"));
+// $("#hour-16 .description").val(localStorage.getIem("hour-16"));
+// $("#hour-17 .description").val(localStorage.getIem("hour-17"));
+
+// Condensed version of the above....?
+$(".saveBtn").on("click", function () {
+  //get nearby values (Content in textarea box)
+  console.log(this);
+  var text = $(this).siblings(".description").val();
+  var time = $(this).parent().attr("id");
+  //set (save) items in local storage.
+  localStorage.setItem(time, text);
+});
 
 var userInputByHour = [
   {
