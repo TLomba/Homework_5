@@ -62,9 +62,8 @@ var time = [
 
 console.log(time);
 
-// STYLING - for loop that iterates through the time array up above si that colors can be applied correctly according to the assignment parameter - to generate the div colors. AHH some added organization with color!
+// STYLING - for loop that iterates through the time array up above so that colors can be applied correctly according to the assignment parameter - to generate the div colors. AHH some added organization with color!
 
-// is element needed - maybe not check this
 $(".time-block").each(function (element) {
   console.log(this);
   var timeRow = $(this);
@@ -74,15 +73,15 @@ $(".time-block").each(function (element) {
   console.log(time);
   if (now === time) {
     $(this).addClass("present");
-    //if time.key === myHour, then block is red
+    //if time.key === myHour, then block is green
   }
   if (now > time) {
     $(this).addClass("past");
-    //if time.key < myHour, then block is grey
+    //if time.key < myHour, then block is light grey
   }
   if (now < time) {
     $(this).addClass("future");
-    // if time.key> if time.key < myHour, then block is green
+    // if time.key> if time.key < myHour, then block is yellow
   }
 });
 
@@ -129,19 +128,19 @@ $(".saveBtn").on("click", function () {
   // Stores the time
   var time = $(this).parent().attr("id");
   //set items in local storage.
-  localStorage.setItem("TaskArray", [time, myTodo]);
+  localStorage.setItem(time, myTodo);
 });
 
 // Saving to local storage so that we can keep input!!
-$("#hour-9 .description").val(localStorage.getIem("hour-9"));
-$("#hour-10 .description").val(localStorage.getIem("hour-10"));
-$("#hour-11 .description").val(localStorage.getIem("hour-11"));
-$("#hour-12 .description").val(localStorage.getIem("hour-12"));
-$("#hour-13 .description").val(localStorage.getIem("hour-13"));
-$("#hour-14 .description").val(localStorage.getIem("hour-14"));
-$("#hour-15 .description").val(localStorage.getIem("hour-15"));
-$("#hour-16 .description").val(localStorage.getIem("hour-16"));
-$("#hour-17 .description").val(localStorage.getIem("hour-17"));
+$("#hour-9 .description").val(localStorage.getItem("hour-9"));
+$("#hour-10 .description").val(localStorage.getItem("hour-10"));
+$("#hour-11 .description").val(localStorage.getItem("hour-11"));
+$("#hour-12 .description").val(localStorage.getItem("hour-12"));
+$("#hour-13 .description").val(localStorage.getItem("hour-13"));
+$("#hour-14 .description").val(localStorage.getItem("hour-14"));
+$("#hour-15 .description").val(localStorage.getItem("hour-15"));
+$("#hour-16 .description").val(localStorage.getItem("hour-16"));
+$("#hour-17 .description").val(localStorage.getItem("hour-17"));
 
 console.log(myHour());
 
